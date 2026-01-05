@@ -15,10 +15,12 @@ class MainEj4 {
         delay(500)
         return 44F
     }
+
     suspend fun pedirHum(): Float {
         delay(700)
         return 9.6F
     }
+
     suspend fun pedirViento(): Float {
         delay(1000)
         return 89.1F
@@ -36,6 +38,7 @@ class MainEj4 {
         }
         return Datos(temp.await(), hum.await(), viento.await())
     }
+
     suspend fun pedirTodo2(): Datos = coroutineScope { //Sugerido por la IA Deepseek
         val temperatura = async { pedirTemp() }
         val humedad = async { pedirHum() }
@@ -43,8 +46,7 @@ class MainEj4 {
 
         Datos(temperatura.await(), humedad.await(), viento.await())
     }
-
-    companion object {
+}
         fun main(args: Array<String>) {
             runBlocking {
             val mainEj4 = MainEj4()
@@ -65,5 +67,4 @@ class MainEj4 {
             println("Tiempo de ejecución: ${endTime2 - startTime2}ms")
         }
     }
-    }
-}
+

@@ -8,7 +8,6 @@ import kotlinx.coroutines.runBlocking
 val PREFER_ADMIN = Preferencias(true, URL("https://example.com/default-avatar.png"))
 val USUARIO_ADMIN = usuario("admin", "admin", PREFER_ADMIN, 666666667)
 
-class MainEj1 {
         fun main(args: Array<String>) {
             runBlocking {
 
@@ -26,7 +25,7 @@ class MainEj1 {
                 }
             }
         }
-}
+
 suspend fun login(id: String, pass: String): Boolean {
     return if (id == USUARIO_ADMIN.id && pass == USUARIO_ADMIN.passwd) {
         val perfil = cargarPerfil(id)
